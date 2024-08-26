@@ -1,11 +1,7 @@
 <?php
+    class contact extends Controller {
 
-    class Contact extends Controller {
         public function index() {
-
-        }
-        public function about() {
-            $this->view('contact/about');
-            //var_dump(1);
+            $this->view('contact');
         }
     }

@@ -1,13 +1,13 @@
 <?php
     class App {
         
-        protected $controller = 'Home';
+        protected $controller = 'home';
         protected $method = 'index';
         protected $params = [];
 
         public function __construct() {
             $url = $this->parseUrl();
-
+            
             if(file_exists('app/controllers/' . ucfirst($url[0]) . '.php')) {
                 $this->controller = ucfirst($url[0]);
                 unset($url[0]);
