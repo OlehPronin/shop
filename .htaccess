@@ -1,0 +1,28 @@
+# Переключаем движок URL-перезаписи
+RewriteEngine On
+
+# Указываем, что index.php является файлом по умолчанию
+DirectoryIndex index.php
+
+# Защита конфиденциальных файлов и директорий
+<FilesMatch "^\.">
+    Order allow,deny
+    Deny from all
+</FilesMatch>
+
+
+
+# Перенаправление всех запросов на index.php, кроме существующих файлов и директорий
+RewriteEngine on
+RewriteCond %{SCRIPT_FILENAME} !-f
+RewriteCond %{SCRIPT_FILENAME} !-d
+RewriteCond %{SCRIPT_FILENAME} !-l
+RewriteRule ^(.*)$ index.php/$1
+
+# Защита файла .htaccess
+<Files .htaccess>
+    Order allow,deny
+    Deny from all
+</Files>
+
+
